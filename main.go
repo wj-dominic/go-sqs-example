@@ -26,7 +26,7 @@ func main() {
 	go func(pub *sqs.Client) {
 		// Example of publishing a message to a queue
 		queue, err := pubClient.GetQueueUrl(context.TODO(), &sqs.GetQueueUrlInput{
-			QueueName: aws.String("tbindexer-queue"),
+			QueueName: aws.String("test-queue"),
 		})
 		if err != nil {
 			log.Fatalf("failed to get queue URL: %v", err)
@@ -56,7 +56,7 @@ func main() {
 	go func(sub *sqs.Client) {
 		// Example of subscribing to a queue and processing messages
 		queue, err := subClient.GetQueueUrl(context.TODO(), &sqs.GetQueueUrlInput{
-			QueueName: aws.String("tbindexer-queue"),
+			QueueName: aws.String("test-queue"),
 		})
 		if err != nil {
 			log.Fatalf("failed to get queue URL: %v", err)
